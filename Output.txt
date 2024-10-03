@@ -1,0 +1,24 @@
+Coding info: HUIA85
+
+==========================
+== General Message Info ==
+==========================
+Grib Finda at pos: 40
+7777 Find at position: 500250820
+Distance between end of grib and start of 7777: 500250780
+Whole Message length: 500250780
+
+======================
+==  Section 1 Data  ==
+======================
+Section 1 length: 28
+
+======================
+==  Section 2 Data  ==
+======================
+Section 2 length: 178
+
+======================
+==  Section 3 Data  ==
+======================
+Section 3 length: 4320

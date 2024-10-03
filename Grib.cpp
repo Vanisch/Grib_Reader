@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+//Creating the necessary variables.
 int sec1,sec2,sec3;
 struct GribMessage {
     int start_pos;
@@ -14,6 +15,7 @@ struct GribMessage {
     int section3_length;
 };
 
+//Preparation of variables to display.
 GribMessage parse_grib1_message(ifstream& file) {
     GribMessage message;
     file.seekg(0, ios::beg);
@@ -30,6 +32,34 @@ GribMessage parse_grib1_message(ifstream& file) {
     return message;
 }
 
+//Saving output from program to output.exe.
+void display_grib_info(const GribMessage& message, ofstream& output) {
+    output << "Coding info: HUIA85\n";
+    output << "\n==========================\n";
+    output << "== General Message Info ==\n";
+    output << "==========================\n";
+    output << "Grib Finda at pos: " << message.start_pos << "\n";
+    output << "7777 Find at position: " << message.end_pos << "\n";
+    output << "Distance between end of grib and start of 7777: " << (message.end_pos - message.start_pos) << "\n";
+    output << "Whole Message length: " << message.length << "\n";
+    
+    output << "\n======================\n";
+    output << "==  Section 1 Data  ==\n";
+    output << "======================\n";
+    output << "Section 1 length: " << message.section1_length << "\n";
+    
+    output << "\n======================\n";
+    output << "==  Section 2 Data  ==\n";
+    output << "======================\n";
+    output << "Section 2 length: " << message.section2_length << "\n";
+    
+    output << "\n======================\n";
+    output << "==  Section 3 Data  ==\n";
+    output << "======================\n";
+    output << "Section 3 length: " << message.section3_length << "\n";
+}
+
+//Opening failes, getting neccesery informations and closing files after everything done.
 int main()
 {
     ifstream file("sample.grib", ios::binary);
