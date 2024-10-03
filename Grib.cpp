@@ -4,6 +4,7 @@
 #include <string>
 using namespace std;
 
+int sec1,sec2,sec3;
 struct GribMessage {
     int start_pos;
     int end_pos;
@@ -22,9 +23,9 @@ GribMessage parse_grib1_message(ifstream& file) {
     message.end_pos = file.tellg();
     message.length = message.end_pos - message.start_pos;
     
-    message.section1_length = 28;
-    message.section2_length = 178;
-    message.section3_length = 4320;
+    message.section1_length = sec1;
+    message.section2_length = sec2;
+    message.section3_length = sec3;
     
     return message;
 }
@@ -43,6 +44,12 @@ int main()
         return 1;
  	}
 
+    cout << "Enter the lenght of section 1";
+    cin >> sec1;
+    cout << "Enter the lenght of section 2";
+    cin >> sec2;
+    cout << "Enter the lenght of section 3";
+    cin >> sec3;
     GribMessage message = parse_grib1_message(file);
 
     file.close();
